@@ -127,6 +127,7 @@ crs$ignore    <- "X1.transaction.date"
 crs$weights   <- NULL
 ```
 
+## Data Exploration
 The 'Hmisc' package provides the 'contents ,describe' function.
 ## Summary of the dataset.
 ```{r, warning=FALSE, message=FALSE, error=FALSE}
@@ -138,7 +139,8 @@ summary(crs$dataset[crs$train, c(crs$input, crs$risk, crs$target)])
 ```{r}
 describe(crs$dataset[crs$train, c(crs$input, crs$risk, crs$target)])
 ```
-## Displaying histogram plots for the selected variables. 
+## Data Visualization
+* Displaying histogram plots for the selected variables. 
 ### Generating histogram plot for X2.house.age
 ```{r}
 p01 <- crs %>%
@@ -176,13 +178,14 @@ p03 <- crs %>%
 ```{r, warning=FALSE, message=FALSE, error=FALSE}
 gridExtra::grid.arrange(p01, p02, p03)
 ```
+
 ## Insights
 
 * The first thing we notice is that price of houses nearest to MRT station are more.
 
 * The second thing we notice is that price of houses with 0 to 1 or 4 to 5 convenience stores near by are more.
 
-# Methods/ Analysis
+# Methods / Analysis
 ## Clustering
 
 A cluster analysis will identify groups within a dataset. The KMeans
@@ -564,7 +567,7 @@ Report generation information:
 
  *  created by: Sudha Kankipati
  
- *  Report creation time: Wed Jun 16 2020 
+ *  Report creation date: Wed Jun 16 2020 
  
  *  R version 4.0.0 (2020-04-24).
  
