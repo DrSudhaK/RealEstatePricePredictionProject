@@ -245,7 +245,6 @@ crs$glm <- lm(Y.house.price.of.unit.area ~ ., data=crs$dataset[crs$train,c(crs$i
 print(summary(crs$glm))
 cat('==== ANOVA ====')
 print(anova(crs$glm))
-print(" ")
 
 #Plot the model evaluation.
 ttl <- genPlotTitleCmd("Linear Model",crs$dataname,vector=TRUE)
@@ -284,7 +283,7 @@ fitcorr <- format(cor(fitpoints[,1], fitpoints[,2])^2, digits=4)
 dtRsqr <- fitcorr
 
 # Plot settings for the true points and best fit.
-op <- par(c(lty="solid", col="blue"))
+op <- par(c(lty="solid", col="green"))
 
 # Display the observed (X) versus predicted (Y) points.
 plot(fitpoints[[1]], fitpoints[[2]], asp=1, xlab="Y.house.price.of.unit.area", ylab="Predicted")
@@ -296,7 +295,7 @@ prline <- lm(fitpoints[,2] ~ fitpoints[,1])
 abline(prline)
 
 # Add a diagonal representing perfect correlation.
-par(c(lty="dashed", col="black"))
+par(c(lty="dashed", col="brown"))
 abline(0, 1)
 
 # Include a pseudo R-square on the plot
@@ -327,7 +326,7 @@ fitcorr <- format(cor(fitpoints[,1], fitpoints[,2])^2, digits=4)
 rfRsqr <- fitcorr
 
 # Plot settings for the true points and best fit.
-op <- par(c(lty="solid", col="blue"))
+op <- par(c(lty="solid", col="green"))
 
 # Display the observed (X) versus predicted (Y) points.
 plot(fitpoints[[1]], fitpoints[[2]], asp=1, xlab="Y.house.price.of.unit.area", ylab="Predicted")
@@ -339,7 +338,7 @@ prline <- lm(fitpoints[,2] ~ fitpoints[,1])
 abline(prline)
 
 # Add a diagonal representing perfect correlation.
-par(c(lty="dashed", col="black"))
+par(c(lty="dashed", col="brown"))
 abline(0, 1)
 
 # Include a pseudo R-square on the plot
@@ -372,7 +371,7 @@ fitcorr <- format(cor(fitpoints[,1], fitpoints[,2])^2, digits=4)
 lmRsqr <- fitcorr
 
 # Plot settings for the true points and best fit.
-op <- par(c(lty="solid", col="blue"))
+op <- par(c(lty="solid", col="green"))
 
 # Display the observed (X) versus predicted (Y) points.
 plot(fitpoints[[1]], fitpoints[[2]], asp=1, xlab="Y.house.price.of.unit.area", ylab="Predicted")
@@ -384,7 +383,7 @@ prline <- lm(fitpoints[,2] ~ fitpoints[,1])
 abline(prline)
 
 # Add a diagonal representing perfect correlation.
-par(c(lty="dashed", col="black"))
+par(c(lty="dashed", col="brown"))
 abline(0, 1)
 
 # Include a pseudo R-square on the plot
@@ -435,7 +434,7 @@ if (maxRsqr == dtRsqr) {
   a
 }
 
-# Report creation date: Wed Jun 16 2020 
+# Report creation date: Wed Jun 17 2020 
 # R version 4.0.0 (2020-04-24).
 # Platform: x86_64-w64-mingw32/x64 (64-bit)(Windows 10 x64 (build 18363)).
 # Placed files for this project in https://github.com/DrSudhaK/RealEstatePricePredictionProject.git

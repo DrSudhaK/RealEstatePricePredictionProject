@@ -2,7 +2,7 @@
 dataMaid: yes
 title: Real Estate Price Prediction Project 
 subtitle: "HarvardX: PH125.9x Data Science: Capstone:  Sudha Kankipati"
-date: 2020-06-16 
+date: 2020-06-17 
 output: pdf_document
 geometry: margin=2cm
 documentclass: report
@@ -76,6 +76,7 @@ set.seed(crv$seed)
 ### Number of observations
 ```{r}
 crs$nobs <- nrow(crs$dataset)
+crs$nobs
 ```
 
 ### Creating training set
@@ -390,11 +391,8 @@ dtRsqr <- fitcorr
 
 * Plot settings for the true points and best fit.
 ```{r}
-op <- par(c(lty="solid", col="blue"))
-```
-
-* Display the observed (X) versus predicted (Y) points.
-```{r}
+op <- par(c(lty="solid", col="green"))
+# Display the observed (X) versus predicted (Y) points.
 plot(fitpoints[[1]], fitpoints[[2]], asp=1, xlab="Y.house.price.of.unit.area", ylab="Predicted")
 # Generate a simple linear fit between predicted and observed.
 prline <- lm(fitpoints[,2] ~ fitpoints[,1]) 
@@ -442,7 +440,7 @@ rfRsqr <- fitcorr
 
 * Plot settings for the true points and best fit.
 ```{r}
-op <- par(c(lty="solid", col="blue"))
+op <- par(c(lty="solid", col="green"))
 # Display the observed (X) versus predicted (Y) points.
 plot(fitpoints[[1]], fitpoints[[2]], asp=1, xlab="Y.house.price.of.unit.area", ylab="Predicted")
 # Generate a simple linear fit between predicted and observed.
@@ -492,7 +490,7 @@ lmRsqr <- fitcorr
 
 * Plot settings for the true points and best fit.
 ```{r}
-op <- par(c(lty="solid", col="blue"))
+op <- par(c(lty="solid", col="green"))
 # Display the observed (X) versus predicted (Y) points.
 plot(fitpoints[[1]], fitpoints[[2]], asp=1, xlab="Y.house.price.of.unit.area", ylab="Predicted")
 prline <- lm(fitpoints[,2] ~ fitpoints[,1])
@@ -515,7 +513,7 @@ grid()
 * Linear Model `r lmRsqr` 
 * Random Forest Model `r rfRsqr`
 * Decision Tree Model `r dtRsqr` 
-```{r}
+```{r, echo=FALSE}
 results <- c(lmRsqr,rfRsqr,dtRsqr)
 minRsqr <- min(results)
 if (minRsqr == lmRsqr) {
@@ -525,7 +523,7 @@ a
 }
 ```
 
-```{r}
+```{r, echo=FALSE}
 if (minRsqr == rfRsqr) {
 a <-  paste("Random Forest Model has least pseudo R-square of ", rfRsqr, sep = "")
 a <- paste(a, " over the other 2 models", sep = "")
@@ -533,14 +531,14 @@ a
 }
 ```
 
-```{r}
+```{r, echo=FALSE}
 if (minRsqr == dtRsqr) {
 a <-  paste("Decision Tree Model has least pseudo R-square of ", dtRsqr, sep = "")
 a <- paste(a, " over the other 2 models", sep = "")
 a
 }
 ```
-```{r}
+```{r, echo=FALSE}
 maxRsqr <- max(results)
 if (maxRsqr == lmRsqr) {
 a <-  paste("Linear Model has higher pseudo R-square of ", lmRsqr, sep = "")
@@ -548,14 +546,14 @@ a <- paste(a, " over the other 2 models", sep = "")
 a
 }
 ```
-```{r}
+```{r, echo=FALSE}
 if (maxRsqr == rfRsqr) {
 a <-  paste("Random Forest Model has higher pseudo R-square of ", rfRsqr, sep = "")
 a <- paste(a, " over the other 2 models", sep = "")
 a
 }
 ```
-```{r}
+```{r, echo=FALSE}
 if (maxRsqr == dtRsqr) {
 a <-  paste("Decision Tree Model has higher pseudo R-square of ", dtRsqr, sep = "")
 a <- paste(a, " over the other 2 models", sep = "")
@@ -567,7 +565,7 @@ Report generation information:
 
  *  created by: Sudha Kankipati
  
- *  Report creation date: Wed Jun 16 2020 
+ *  Report creation date: Wed Jun 17 2020 
  
  *  R version 4.0.0 (2020-04-24).
  
